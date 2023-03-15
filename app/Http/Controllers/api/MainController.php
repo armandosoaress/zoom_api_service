@@ -4,7 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Getrequest;
-use App\Http\Services\requestapi;
+use App\Http\Services\Requestapi;
 use App\Http\Services\utils\baseurl;
 use App\Http\Services\utils\Token;
 
@@ -34,7 +34,7 @@ class MainController extends Controller
     
     public function index()
     {
-        $requestapi = new requestapi();
+        $Requestapi = new Requestapi();
         $endpoint = 'meetings';
         $data = [
             'method' => 'GET',
@@ -44,12 +44,12 @@ class MainController extends Controller
             ],
             'json' => []
         ];
-        return $requestapi->request($data);
+        return $Requestapi->request($data);
     }
 
     public function store(Getrequest $request)
     {
-        $requestapi = new requestapi();
+        $Requestapi = new Requestapi();
         $endpoint = 'meetings';
         $data = [
             'method' => 'Post',
@@ -63,6 +63,6 @@ class MainController extends Controller
                 'start_time' => $request->start_time,
             ]
         ];
-        return $requestapi->request($data);
+        return $Requestapi->request($data);
     }
 }
